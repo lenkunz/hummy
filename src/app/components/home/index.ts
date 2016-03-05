@@ -15,24 +15,23 @@ import {RouteParams} from 'angular2/router';
 })
 export class Home implements OnInit {
     private pageId : number;
+    private entries : Entry[];
     constructor(private api: Api, private entriesService: EntriesService, private params: RouteParams) {
         let pageId = params.get("page");
-        if(typeof pageId == "undefined"){
+        if(pageId === undefined){
             this.pageId = 0;
         }else{
             this.pageId = +pageId;
         }
         // Do stuff
+        this.entries = this.entriesService.getEntriesByRecent(
+            this.api.entries.perPage * this.pageId, this.api.entries.perPage
+        );
+        
+        console.log(this.entries);
     }
 
     ngOnInit() {
         //console.log('Hello Home');
-    }
-
-    getPage(page: number) : Entry[] {
-        console.log("Hello from page " + page);
-        return this.entriesService.getEntriesByRecent(
-            this.api.entries.perPage * page, this.api.entries.perPage
-        );
     }
 }

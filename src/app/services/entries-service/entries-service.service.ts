@@ -26,10 +26,9 @@ export class EntriesService {
         return null;
     }
     public getEntriesByTag(offset: number, limit: number) : Entry[] {
-        return null;
+        return [];
     }
     public create(entry: Entry) : Entry {
-        throw new Error();
-//        return null;
+        return null;
     }
 }
