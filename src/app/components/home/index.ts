@@ -16,9 +16,11 @@ import {RouteParams} from 'angular2/router';
 export class Home implements OnInit {
     private pageId : number;
     constructor(private api: Api, private entriesService: EntriesService, private params: RouteParams) {
-        this.pageId = +params.get("page");
-        if(typeof this.pageId == "undefined"){
+        let pageId = params.get("page");
+        if(typeof pageId == "undefined"){
             this.pageId = 0;
+        }else{
+            this.pageId = +pageId;
         }
         // Do stuff
     }
