@@ -1,0 +1,12 @@
+<section class="entry">
+    <header>
+        <h2 class="title">{{entry.title}}</h2>
+    </header>
+    <content class="content">{{entry.content}}</content>
+    <footer>
+        <span class="author">
+            <a rel="author">{{entry.author}}</a>
+        </span>
+        <time class="time" datetime="{{entry.time}}" >{{entry.time | date: "MM/dd/yy"}}</time>
+    </footer>
+</section>

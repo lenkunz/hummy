@@ -24,6 +24,7 @@ import {Home} from './components/home';     // ./components/home/index.ts
 })
 @RouteConfig([
     {path: '/', component: Home, name: 'Home'},
+    {path: '/page/:page', component: Home, name: 'Page'},
     // Async load a component using Webpack's require with es6-promise-loader
     { path: '/about', loader: () => require('./components/about')('About'), name: 'About' }
 ])

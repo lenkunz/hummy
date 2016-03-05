@@ -17,7 +17,7 @@ mocks.push(<Entry>{
 
 @Injectable()
 export class EntriesService {
-    public getEntriesByRacent(offset: number, limit: number) : Entry[] {
+    public getEntriesByRecent(offset: number, limit: number) : Entry[] {
         // this is how to communicate with server
         // Mocks
         return mocks;
