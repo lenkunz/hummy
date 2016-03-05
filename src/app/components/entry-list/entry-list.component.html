@@ -1,3 +1,5 @@
-<div class="entry-view-wrapper">
-    <entry-preview *ngFor="#entry in entries" entry="{{entry}}"></entry-preview>
+<div class="entry-view-slider">
+    <div class="entry-view-wrapper">
+        <entry-preview *ngFor="#entry of entries" [entry]="entry"></entry-preview>
+    </div>
 </div>

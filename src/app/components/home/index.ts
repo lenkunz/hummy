@@ -5,10 +5,11 @@ import {EntriesService} from '../../services/entries-service/entries-service.ser
 import {AppHeadComponent} from '../app-head/app-head.component';
 import {Entry} from '../../interfaces/entry/entry.interface';
 import {RouteParams} from 'angular2/router';
+import {EntryListComponent} from '../entry-list/entry-list.component';
 
 @Component({
     selector: 'home',
-    directives: [...FORM_DIRECTIVES, AppHeadComponent],
+    directives: [...FORM_DIRECTIVES, AppHeadComponent, EntryListComponent],
     pipes: [],
     styles: [require('./style.scss')],
     template: require('./template.html')
@@ -16,6 +17,7 @@ import {RouteParams} from 'angular2/router';
 export class Home implements OnInit {
     private pageId : number;
     private entries : Entry[];
+    
     constructor(private api: Api, private entriesService: EntriesService, private params: RouteParams) {
         let pageId = params.get("page");
         if(pageId === undefined){
