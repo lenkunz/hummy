@@ -9,6 +9,7 @@ import {Api} from './services/api';         // ./services/api/index.ts
 import {EntriesService} from './services/entries-service/entries-service.service';
 import {Home} from './components/home';     // ./components/home/index.ts
 import {ErrorComponent} from './components/error/error.component';
+import {EntryViewComponent} from './components/entry-view/entry-view.component';
 //import {About} from "./components/about"; // About is an async route configured via @RouteConfig
 
 /*
@@ -26,6 +27,7 @@ import {ErrorComponent} from './components/error/error.component';
 @RouteConfig([
     {path: '/', component: Home, name: 'Home'},
     {path: '/page/:page', component: Home, name: 'Page'},
+    {path: '/entry/:id', component: EntryViewComponent, name: 'Entry'},
     // Async load a component using Webpack's require with es6-promise-loader
     {path: '/about', loader: () => require('./components/about')('About'), name: 'About' },
     {path: '/**', component: ErrorComponent, name: 'Error'}

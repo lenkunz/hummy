@@ -1,1 +1,17 @@
-<div>entryView</div>
+<app-head title="" desc="" [size]="getSize(entry)" [background]="getBackground(entry)"></app-head>
+<div class="slider">
+    <div class="wrapper">
+        <header>
+            <h1 class="title">{{entry.title}}</h1>
+        </header>
+        <content class="content">
+            <div class="text">
+                {{entry.content}}
+            </div>
+        </content>
+        <div class="footer">
+            <span class="author"><a rel="author">{{entry.author}}</a></span>
+            <time class="time">{{entry.time | date: "MM/dd/yy"}}</time>
+        </div>
+    </div>
+</div>
