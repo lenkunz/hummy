@@ -4,7 +4,12 @@
     height: 15em;
     width: 100%;
     padding-top: 2em;
-    background-color: #F6F6F6;    
+    background: #F6F6F6 no-repeat center center;
+    background-size: cover;
+}
+
+#title-wrapper.large {
+    height: 22em;
 }
 
 #title {

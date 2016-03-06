@@ -2,7 +2,7 @@
 
 import {enableProdMode, provide} from "angular2/core";
 import {bootstrap, ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/browser';
-import {ROUTER_PROVIDERS, PathLocationStrategy, LocationStrategy} from 'angular2/router';
+import {ROUTER_PROVIDERS, APP_BASE_HREF, PathLocationStrategy, HashLocationStrategy, LocationStrategy} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
 const ENV_PROVIDERS = [];
@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function main() {
         ...HTTP_PROVIDERS,
         ...ROUTER_PROVIDERS,
         ...ENV_PROVIDERS,
-        provide(LocationStrategy, {useClass: PathLocationStrategy}) // use #/ routes, remove this for HTML5 mode
+        provide(LocationStrategy, {useClass: PathLocationStrategy}), // use #/ routes, remove this for HTML5 mode
+        provide(APP_BASE_HREF, {useValue: '/'})
     ])
         .catch(err => console.error(err));
 });
@@ -49,12 +50,14 @@ if (module.hot) {
     // otherwise it cannot be rerenderd after module replacement
     //
     // for testing try to comment the bootstrap function,
-    // open the dev tools and you'll see the reloader is replacing the module but cannot rerender it
+    // open the dev tools and you'll see the reloader is replacing the module but cannot rerder it
     bootstrap(App, [
         ...ENV_PROVIDERS,
         ...HTTP_PROVIDERS,
         ...ROUTER_PROVIDERS,
-        provide(LocationStrategy, {useClass: PathLocationStrategy})
+        provide(LocationStrategy, {useClass: PathLocationStrategy}),
+        provide(APP_BASE_HREF, {useValue: '/'})
+
     ])
         .catch(err => console.error(err));
 

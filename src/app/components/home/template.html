@@ -1,6 +1,8 @@
-<app-head 
-    title="{{api.title}}" 
-    desc="{{api.description}}"
-    ></app-head>
-<entry-list [entries]="entries">
-    </entry-list>
+<app-head title="{{api.title}}" desc="{{api.description}}"></app-head>
+<entry-list [entries]="entries"></entry-list>
+<div id="nav_slider">
+    <div id="nav_wrapper">
+        <a id="prev_nav" class="page_nav" *ngIf="showPrevious" [routerLink]="['Page', {'page':previousPageNumber}]">&lt; Previous</a>
+        <a id="next_nav" class="page_nav" *ngIf="showNext" [routerLink]="['Page', {'page':nextPageNumber}]">Next &gt;</a>
+    </div>
+</div>

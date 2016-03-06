@@ -1,0 +1,38 @@
+#nav_slider {
+    width: 100%;
+    text-align: center;
+}
+
+#nav_wrapper {
+    margin: 1em auto;
+    width: 80%;
+    max-width: 680px;
+    position: relative;
+    height: 3em;
+    color: #555;
+}
+
+.page_nav {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    color: #999;
+    text-decoration: none;
+    font-size: .9em;    
+}
+
+#prev_nav {
+    top: 0;
+    left: 0;
+    height: 1.2em;
+    line-height: 1.2em;
+    padding: .5em;
+}
+
+#next_nav {
+    top: 0;
+    right: 0;
+    height: 1.2em;
+    line-height: 1.2em;
+    padding: .5em;
+}

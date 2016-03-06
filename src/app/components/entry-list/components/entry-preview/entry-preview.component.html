@@ -1,12 +1,11 @@
 <section class="entry">
     <header>
-        <h2 class="title">{{entry.title}}</h2>
+        <a  [routerLink]="['../Page', {'page': entry.id}]">
+            <h2 class="title">{{entry.title}}</h2></a>
     </header>
     <content class="content">{{entry.content}}</content>
-    <footer>
-        <span class="author">
-            <a rel="author">{{entry.author}}</a>
-        </span>
+    <div class="footer">
+        <span class="author"><a rel="author">{{entry.author}}</a></span>
         <time class="time">{{entry.time | date: "MM/dd/yy"}}</time>
-    </footer>
+    </div>
 </section>

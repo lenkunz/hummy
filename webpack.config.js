@@ -29,14 +29,14 @@ function root(args) {
 function prepend(extensions, args) {
     args = args || [];
     if (!Array.isArray(args)) { args = [args]; }
-    return extensions.reduce(function(memo, val) {
-        return memo.concat(val, args.map(function(prefix) {
+    return extensions.reduce(function (memo, val) {
+        return memo.concat(val, args.map(function (prefix) {
             return prefix + val;
         }));
     }, ['']);
 }
 
-module.exports = (function makeWebpackConfig() {
+module.exports = [(function makeWebpackConfig() {
     /**
      * Config
      * Reference: http://webpack.github.io/docs/configuration.html
@@ -77,8 +77,8 @@ module.exports = (function makeWebpackConfig() {
     config.output = isTestEnv ? {} : {
         path: root('dist'),
         publicPath: '/',
-        filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
-        chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js'
+        //filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
+        //chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js'
     };
 
     /**
@@ -89,7 +89,7 @@ module.exports = (function makeWebpackConfig() {
         cache: !isTestEnv,
         root: root(),
         // only discover files that have those extensions
-        extensions: prepend(['.ts','.js','.json','.css', '.scss', '.html'], '.async'), // ensure .async.ts etc also works
+        extensions: prepend(['.ts', '.js', '.json', '.css', '.scss', '.html'], '.async'), // ensure .async.ts etc also works
         alias: {
             'app': 'src/app',
             'common': 'src/common'
@@ -103,7 +103,7 @@ module.exports = (function makeWebpackConfig() {
      * This handles most of the magic responsible for converting modules
      */
     config.module = {
-        preLoaders: isTestEnv ? [] : [{test: /\.ts$/, loader: 'tslint'}],
+        preLoaders: isTestEnv ? [] : [{ test: /\.ts$/, loader: 'tslint' }],
         loaders: [
 
             // Support Angular 2 async routes via .async.ts
@@ -133,10 +133,10 @@ module.exports = (function makeWebpackConfig() {
             },
 
             // copy those assets to output
-            {test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'file?name=[path][name].[ext]?[hash]'},
+            { test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'file?name=[path][name].[ext]?[hash]' },
 
             // Support for *.json files.
-            {test: /\.json$/, loader: 'json'},
+            { test: /\.json$/, loader: 'json' },
 
             // Support for CSS as raw text
             // use 'null' loader in test mode (https://github.com/webpack/null-loader)
@@ -147,7 +147,7 @@ module.exports = (function makeWebpackConfig() {
                 loader: isTestEnv ? 'null' : ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
             },
             // all css required in src/app files will be merged in js files
-            {test: /\.css$/, include: root('src', 'app'), loader: 'raw!postcss'},
+            { test: /\.css$/, include: root('src', 'app'), loader: 'raw!postcss' },
 
             // support for .scss files
             // use 'null' loader in test mode (https://github.com/webpack/null-loader)
@@ -158,11 +158,11 @@ module.exports = (function makeWebpackConfig() {
                 loader: isTestEnv ? 'null' : ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!sass')
             },
             // all css required in src/app files will be merged in js files
-            {test: /\.scss$/, exclude: root('src', 'style'), loader: 'raw!postcss!sass'},
+            { test: /\.scss$/, exclude: root('src', 'style'), loader: 'raw!postcss!sass' },
 
             // support for .html as raw text
             // suggest changing the loader to something that adds a hash to images
-            {test: /\.html$/, loader: 'raw'}
+            { test: /\.html$/, loader: 'raw' }
         ],
         postLoaders: [],
         noParse: [/.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/, /angular2-polyfills\.js/]
@@ -248,8 +248,8 @@ module.exports = (function makeWebpackConfig() {
             // Extract css files
             // Reference: https://github.com/webpack/extract-text-webpack-plugin
             // Disabled when in test mode or not in build mode
-            new ExtractTextPlugin('css/[name].[hash].css', {disable: ENV !== 'build'})
-        );
+            new ExtractTextPlugin('css/[name].[hash].css', { disable: ENV !== 'build' })
+            );
     }
 
     // Add build specific plugins
@@ -276,7 +276,7 @@ module.exports = (function makeWebpackConfig() {
             new CopyWebpackPlugin([{
                 from: root('src/public')
             }])
-        );
+            );
     }
 
     /**
@@ -320,5 +320,42 @@ module.exports = (function makeWebpackConfig() {
     };
 
     return config;
-}());
+} ())];
+// {
+//     resolve: {
+//         extensions: ['', '.ts', '.js'],
+//         root: __dirname + '/src'
+//     },
+//     module: {
+//         loaders: [
+//             {
+//                 test: /\.ts$/,
+//                 loader: 'ts-loader',
+//                 exclude: [/node_modules/]
+//             }
+//         ]
+//     },
+//     target: 'node',
+//     entry: './src/server',
+//     output: {
+//         path: __dirname + '/dist/server',
+//         publicPath: path.resolve(__dirname),
+//         filename: 'bundle.js'
+//     },
+//     externals: checkNodeImport,
+//     node: {
+//         global: true,
+//         __dirname: true,
+//         __filename: true,
+//         process: true,
+//         Buffer: true
+//     },
+//     context: __dirname,
+// }];
 
+// function checkNodeImport(context, request, cb) {
+//     if (!path.isAbsolute(request) && request.charAt(0) !== '.') {
+//         cb(null, 'commonjs ' + request); return;
+//     }
+//     cb();
+// }

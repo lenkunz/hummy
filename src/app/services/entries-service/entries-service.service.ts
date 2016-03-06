@@ -5,11 +5,22 @@ import {Http, Response} from 'angular2/http';
 /* beautify ignore:end */
 
 let mocks : Entry[] = [];
+
 mocks.push(<Entry>{
     id: "0",
-    title: "Test",
-    content: "test",
-    author: "Author",
+    title: "The Businessman & The Fisherman",
+    content: "An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the",
+    author: "Hannah Wolfe",
+    time: new Date(),
+    headPic: "",
+    tags: [""]
+});
+
+mocks.push(<Entry>{
+    id: "1",
+    title: "I Have a Dream",
+    content: "I am happy to join with you today in what will go down in history as the greatest demonstration for freedom in the history of our",
+    author: "Hannah Wolfe",
     time: new Date(),
     headPic: "",
     tags: [""]
