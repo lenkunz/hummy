@@ -1,13 +1,8 @@
-<div class="wrapper-all">
-    <div class="head">
-        <app-head title="Create your own story" desc="{{api.description}}"></app-head>
-    </div>
+<app-head title="Create your own story" desc="{{api.description}}"></app-head>
+<div class="slider">
     <div class="wrapper">
-        <div class="topic-wrapper">
-            <div><span id="topic">Topics  </span></div>
-            <div><input id="topicinput" type="text"  [(ngModel)]="entryTopic" /></div>
-            <div><button id="submit-button" (click)="createTopicName()">Create</button></div>
+        <div class="title">
+            <input id="topicinput" placeholder="<< Your new story >>" type="text" (click)="contentCheck()" (blur)="contentCheckBlur()" [(ngModel)]="entryTopic" />
         </div>
     </div>
-    <div class="test">text : {{entryTopic}}</div>
 </div>

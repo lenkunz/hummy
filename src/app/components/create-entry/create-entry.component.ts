@@ -17,6 +17,18 @@ export class CreateEntryComponent {
 
 	}
 
+    contentCheckBlur(){
+        if(this.entryTopic.trim().length == 0){
+            this.entryTopic = "";
+        }
+    }
+
+    contentCheck(){
+        if(this.entryTopic.trim().length == 0){
+            this.entryTopic = "";
+        }
+    }
+
 	createTopicName(){
 		this.createTopic = true;
 		this.entryTopic = "5555";
