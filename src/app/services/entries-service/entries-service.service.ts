@@ -12,7 +12,7 @@ mocks.push(<Entry>{
     content: "An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the",
     author: "Hannah Wolfe",
     time: new Date(),
-    headPic: "",
+    headPic: "/img/testimg-cover.jpg",
     tags: [""]
 });
 
@@ -34,7 +34,7 @@ export class EntriesService {
         return mocks;
     }
     public getEntryById(id: string) : Entry {
-        return null;
+        return mocks[parseInt(id)];
     }
     public getEntriesByTag(offset: number, limit: number) : Entry[] {
         return [];
