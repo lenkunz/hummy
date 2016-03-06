@@ -77,8 +77,8 @@ module.exports = [(function makeWebpackConfig() {
     config.output = isTestEnv ? {} : {
         path: root('dist'),
         publicPath: '/',
-        //filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
-        //chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js'
+        filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
+        chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js'
     };
 
     /**
@@ -324,7 +324,7 @@ module.exports = [(function makeWebpackConfig() {
 // {
 //     resolve: {
 //         extensions: ['', '.ts', '.js'],
-//         root: __dirname + '/src'
+//         root: __dirname + '/src/server'
 //     },
 //     module: {
 //         loaders: [
@@ -336,9 +336,9 @@ module.exports = [(function makeWebpackConfig() {
 //         ]
 //     },
 //     target: 'node',
-//     entry: './src/server',
+//     entry: [],
 //     output: {
-//         path: __dirname + '/dist/server',
+//         path: __dirname + '/dist/server/server',
 //         publicPath: path.resolve(__dirname),
 //         filename: 'bundle.js'
 //     },
