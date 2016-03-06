@@ -11,7 +11,7 @@ import {AppHeadComponent} from '../app-head/app-head.component';
     directives: [AppHeadComponent]
 })
 export class CreateEntryComponent {
-	private entryTopic: string;
+	public entryTopic: string;
 	private createTopic: boolean = false;
 	constructor(private api: Api) {
 
@@ -19,6 +19,7 @@ export class CreateEntryComponent {
 
 	createTopicName(){
 		this.createTopic = true;
+		this.entryTopic = "5555";
 	}
 
 	ngOnInit() {

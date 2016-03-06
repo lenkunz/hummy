@@ -5,9 +5,9 @@
     <div class="wrapper">
         <div class="topic-wrapper">
             <div><span id="topic">Topics  </span></div>
-            <div><input id="topicinput" type="text"  ([model])="entryTopic"></div>
+            <div><input id="topicinput" type="text"  [(ngModel)]="entryTopic" /></div>
             <div><button id="submit-button" (click)="createTopicName()">Create</button></div>
         </div>
     </div>
-    <div class="test">{{entryTopic}}</div>
+    <div class="test">text : {{entryTopic}}</div>
 </div>
