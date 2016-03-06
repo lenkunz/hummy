@@ -1,0 +1,13 @@
+<div class="wrapper-all">
+    <div class="head">
+        <app-head title="Create your own story" desc="{{api.description}}"></app-head>
+    </div>
+    <div class="wrapper">
+        <div class="topic-wrapper">
+            <div><span id="topic">Topics  </span></div>
+            <div><input id="topicinput" type="text"  ([model])="entryTopic"></div>
+            <div><button id="submit-button" (click)="createTopicName()">Create</button></div>
+        </div>
+    </div>
+    <div class="test">{{entryTopic}}</div>
+</div>

@@ -1,0 +1,38 @@
+.wrapper-all{
+}
+
+.head{
+	height:17em;
+}
+
+.wrapper{
+	padding-top:12em;
+	width: 100%;
+}
+ 
+.topic-wrapper{
+	width: 100%;
+}
+
+.topic-wrapper div{
+	float:left;
+	width:33%
+}
+
+#topic {
+	float:right;
+	font-size:1.4em;
+	color : #666;
+}
+
+#topicinput {
+	width: 80%;
+	font-size:1.3em;
+}
+
+#submit-button {
+	float:left;
+	font-size:1em;
+	width: 6em;
+	line-height : 1.5 em;
+}
