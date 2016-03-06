@@ -11,6 +11,7 @@ import {AppHeadComponent} from '../app-head/app-head.component';
     directives: [AppHeadComponent]
 })
 export class CreateEntryNameComponent {
+	private entryTopic;
 	constructor(private api: Api){
 
 	}

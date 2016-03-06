@@ -10,7 +10,7 @@ import {EntriesService} from './services/entries-service/entries-service.service
 import {Home} from './components/home';     // ./components/home/index.ts
 import {ErrorComponent} from './components/error/error.component';
 import {EntryViewComponent} from './components/entry-view/entry-view.component';
-import {CreateEntryNameComponent} from './components/create-entry-name/create-entry-name.component';
+import {CreateEntryComponent} from './components/create-entry/create-entry.component';
 //import {About} from "./components/about"; // About is an async route configured via @RouteConfig
 
 /*
@@ -31,7 +31,7 @@ import {CreateEntryNameComponent} from './components/create-entry-name/create-en
     {path: '/entry/:id', component: EntryViewComponent, name: 'Entry'},
     // Async load a component using Webpack's require with es6-promise-loader
     {path: '/about', loader: () => require('./components/about')('About'), name: 'About' },
-    {path: '/createstory', component: CreateEntryNameComponent, name:'CreateEntryName'},
+    {path: '/createstory', component: CreateEntryComponent, name:'CreateEntryName'},
     {path: '/**', component: ErrorComponent, name: 'Error'}
 ])
 export class App {
